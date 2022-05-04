@@ -17,11 +17,12 @@ const CollegeSchema = new mongoose.Schema({
 
     },
     logoLink:{
-        type:URL,
+        type:String,
         required:true,
 
 
     },
+    
     isDeleted: {
         type:Boolean,
         default:false
@@ -37,3 +38,4 @@ const CollegeSchema = new mongoose.Schema({
 
 
     module.exports = mongoose.model('College',CollegeSchema )
+   

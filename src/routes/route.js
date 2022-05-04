@@ -6,6 +6,7 @@ const interncontrol=require("../controllers/interncontroller")
 const collegecontrol=require("../controllers/collegecontroller")
 router.post('/create',interncontrol.createIntern)
 router.post("/college",collegecontrol.createcollege)
+router.get("/data",collegecontrol.finddata)
 
 
 
