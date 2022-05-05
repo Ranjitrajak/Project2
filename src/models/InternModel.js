@@ -36,7 +36,7 @@ const InterSchema = new mongoose.Schema({
         trim:true
 
     },
-    isDeleted: {Boolean, default: false}
+    isDeleted: {type:Boolean, default: false}
 }, { timestamps: true });
 
     
