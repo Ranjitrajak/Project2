@@ -22,7 +22,8 @@ const InterSchema = new mongoose.Schema({
         
             type: Number,
             required:true,
-            trim:true
+            trim:true,
+        unique:true
         },
             
           
