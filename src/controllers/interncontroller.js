@@ -1,4 +1,5 @@
 const Internmodel = require('../models/InternModel');
+const collegemodel = require('../models/CollegeModel');
 const valid = function (value) {
 
     if (typeof value !== "string" || value.trim().length == 0) { return false }
