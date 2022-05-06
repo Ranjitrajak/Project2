@@ -27,6 +27,11 @@ const createIntern = async function (req, res){
     let patter = /^[0-9A-Fa-f]{24}$/
 
     if (!patter.test(Id)) { return res.status(400).send({ status: false, message: "collegeId is not valid" }) }
+        const idcheck= await collegemodel.findById(Id)
+        if(!idcheck){
+            return res.status(404).send({status:false, message:`College ID dont exist!!`})
+
+        }
     let check=/^(\+\d{1,3}[- ]?)?\d{10}$/
 
         if(!check.test(intern.mobile)){ return res.status(400).send({ status: false, message: "mobile number is not valid" }) }
