@@ -28,25 +28,25 @@ const createIntern = async function (req, res){
        
     let check=/^(\+\d{1,3}[- ]?)?\d{10}$/
 
-        if(!check.test(intern.mobile)){ return res.status(400).send({ status: false, message: "mobile number is not valid" }) }
-        const mobilenumber=await Internmodel.find({mobile:intern.mobile});
+    if(!check.test(intern.mobile)){ return res.status(400).send({ status: false, message: "mobile number is not valid" }) }
+    const mobilenumber=await Internmodel.find({mobile:intern.mobile});
     if(mobilenumber!=0) return res.status(401).send({status:false,msg:"Phone is Already Exist"})
-        if (intern.isDeleted) { if (typeof intern.isDeleted !== "boolean") { return res.status(400).send({ status: false, message: "value must be in boolean" }) } }
-          let collegeFind = await collegemodel.findOne({ name:intern.collegeName },{id:1})
+    if (intern.isDeleted) { if (typeof intern.isDeleted !== "boolean") { return res.status(400).send({ status: false, message: "value must be in boolean" }) } }
+    let collegeFind = await collegemodel.findOne({ name:intern.collegeName },{id:1})
 
-        if (!collegeFind) {
+    if (!collegeFind) {
           return res.status(400).send({ status: false, msg: "College Name is invalid" })
         }
 
     
 
    
-let internCreated = await Internmodel.create(intern)
-internCreated.collegeId=collegeFind._id.toString()
-internCreated.save()
-res.status(201).send({ status:true,data: internCreated })
-}
-catch (error){
+   let internCreated = await Internmodel.create(intern)
+   internCreated.collegeId=collegeFind._id.toString()
+   internCreated.save()
+   res.status(201).send({ status:true,data: internCreated })
+   }
+   catch (error){
     res.status(500).send(error.message)
 
 }
