@@ -21,9 +21,7 @@ const createcollege = async function (req, res){
     if (!valid(college.fullname)) { return res.status(400).send({ status: false, message: " fullname  is not valid " }) }
     var logo = /(?:https?):\/\/(\w+:?\w*)?(\S+)(:\d+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/
     if(!logo.test(college.logoLink)){ return res.status(400).send({ status: false, message: "logoLink is not valid" }) }
-   if (!valid(college.name)) { return res.status(400).send({ status: false, message: " name is not valid" }) }
-    if (!valid(college.fullname)) { return res.status(400).send({ status: false, message: " fullname  is not valid " }) }
-      if (typeof college.isDeleted !== "boolean") { return res.status(400).send({ status: false, message: "value must be in boolean" }) } 
+    if (typeof college.isDeleted !== "boolean") { return res.status(400).send({ status: false, message: "value must be in boolean" }) } 
 
    
     let collegeCreated = await collegemodel.create(college)
