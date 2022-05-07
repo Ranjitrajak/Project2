@@ -33,8 +33,7 @@ const InterSchema = new mongoose.Schema({
     collegeId:{
         type:ObjectId,
         ref:"College",
-        required:true,
-        trim:true
+         trim:true
 
     },
     isDeleted: {type:Boolean, default: false}
